@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
-import { imageList, ItemDetails } from "../../data/items";
+import { imageList } from "../../data/items";
 import Items from "./Items";
 import Header from "./Header";
 
 export default function Gallery() {
-  const [items, setItems] = useState<ItemDetails[]>(imageList);
+  const [items, setItems] = useState(imageList);
   const [toDelete, setToDelete] = useState(0);
 
 
@@ -34,7 +34,7 @@ export default function Gallery() {
         return {...item, selected: !item.selected };
       }else return item;
     });
-    setItems(newItems as ItemDetails[]);
+    setItems(newItems);
   }
 
   // handle delete items event
